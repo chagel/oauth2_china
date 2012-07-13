@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "oauth2_china"
   gem.require_paths = ["lib"]
   gem.version       = Oauth2China::VERSION
+
+  gem.add_dependency 'faraday'
+  gem.add_dependency 'hashie'
 end
