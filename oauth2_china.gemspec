@@ -4,8 +4,8 @@ require File.expand_path('../lib/oauth2_china/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["cqpx"]
   gem.email         = ["cqpanxu@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{weibo client for china.}
+  gem.summary       = %q{weibo client for china. Currently support sina and qq apis.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
