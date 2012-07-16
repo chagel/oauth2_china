@@ -45,6 +45,30 @@ module Oauth2China
       res = @conn.post("/2/statuses/upload.json", params).body
       Hashie::Mash.new(JSON.parse res)
     end
+
+    def friendships_create(uid)
+      params = @tmpl.clone
+
+      if uid.is_a? String
+        params.uid = uid
+      else
+        params.screen_name = uid
+      end
+
+      res = @conn.post("/2/friendships/create.json", params).body
+      Hashie::Mash.new(JSON.parse res)
+    end
+
+    def comments_create(id, comment, comment_ori = 0)
+      params             = @tmpl.clone
+
+      params.id          = id
+      params.comment     = comment
+      params.comment_ori = comment_ori
+
+      res = @conn.post("/2/comments/create.json", params).body
+      Hashie::Mash.new(JSON.parse res)
+    end
   end
 
   class Tencent < Oauth2China::Base
