@@ -59,6 +59,19 @@ module Oauth2China
       Hashie::Mash.new(JSON.parse res)
     end
 
+    def users_show(uid)
+      params     = @tmpl.clone
+      params.uid = uid
+      res = @conn.get("/2/users/show.json", params).body
+      Hashie::Mash.new(JSON.parse res)
+    end
+
+    def get_uid
+      params = @tmpl.clone
+      res = @conn.get("/2/account/get_uid.json", params).body
+      Hashie::Mash.new(JSON.parse res)
+    end
+
     def comments_create(id, comment, comment_ori = 0)
       params             = @tmpl.clone
 
@@ -108,6 +121,20 @@ module Oauth2China
       params.wei     = longitutde if longitutde
 
       res = @conn.post("/api/t/add_pic", params.to_hash).body
+      Hashie::Mash.new(JSON.parse res)
+    end
+
+    def users_show(name)
+      params      = @tmpl.clone
+      params.name = name
+
+      res = @conn.post("/api/user/other_info", params.to_hash).body
+      Hashie::Mash.new(JSON.parse res)
+    end
+
+    def get_uid
+      params = @tmpl.clone
+      res = @conn.post("/api/user/info", params.to_hash).body
       Hashie::Mash.new(JSON.parse res)
     end
   end
