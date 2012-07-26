@@ -85,7 +85,7 @@ module Oauth2China
   end
 
   class Tencent < Oauth2China::Base
-    def initialize(access_token, openid)
+    def initialize(access_token, clientid, openid)
       @conn = Faraday.new(:url => 'https://open.t.qq.com') do |faraday|
         faraday.request  :multipart
         faraday.request  :url_encoded             # form-encode POST params
@@ -94,7 +94,7 @@ module Oauth2China
       end
 
       @tmpl = Hashie::Mash.new({
-        oauth_consumer_key: 801183628,
+        oauth_consumer_key: clientid,
         access_token: access_token,
         openid: openid,
         clientip: '202.102.154.3',
