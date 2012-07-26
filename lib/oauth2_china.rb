@@ -18,7 +18,7 @@ module Oauth2China
       @conn = Faraday.new(:url => 'https://api.weibo.com') do |faraday|
         faraday.request  :multipart
         faraday.request  :url_encoded             # form-encode POST params
-        faraday.response :logger                  # log requests to STDOUT
+        #faraday.response :logger                  # log requests to STDOUT
         faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
       end
     end
@@ -89,7 +89,7 @@ module Oauth2China
       @conn = Faraday.new(:url => 'https://open.t.qq.com') do |faraday|
         faraday.request  :multipart
         faraday.request  :url_encoded             # form-encode POST params
-        faraday.response :logger                  # log requests to STDOUT
+        #faraday.response :logger                  # log requests to STDOUT
         faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
       end
 
