@@ -1,6 +1,7 @@
 # Oauth2China
 
-TODO: Write a gem description
+Weibo OAuth2 API Ruby wrapper. 
+Currently support Sina and Tencent Weibo APIs.
 
 ## Installation
 
@@ -18,7 +19,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Oauth2China::Sina.new("ACCESS_TOKEN").statuses_update "hello world"
+
 
 ## Contributing
 
