@@ -187,6 +187,13 @@ module Oauth2China
       res = @conn.post("/api/user/info", params.to_hash).body
       Hashie::Mash.new(JSON.parse res)
     end
+
+    def friendships_create(name)
+      params = @tmpl.clone
+      params.name = name
+      res = @conn.post("/api/friends/add", params.to_hash).body
+      Hashie::Mash.new(JSON.parse res)
+    end
   end
 
 end
