@@ -65,5 +65,14 @@ module Oauth2China
       res = @conn.post("/api/friends/add", params.to_hash).body
       Hashie::Mash.new(JSON.parse res)
     end
+
+    # 互粉好友ID列表
+    def mutual_friends_ids(start=1, reqnum=30, options = {})
+      params = @tmpl.clone.merge(options)
+      params.startindex = start
+      params.reqnum = reqnum
+      res = @conn.get("/api/friends/mutual_list", params.to_hash).body
+      Hashie::Mash.new(JSON.parse res)
+    end
   end
 end
