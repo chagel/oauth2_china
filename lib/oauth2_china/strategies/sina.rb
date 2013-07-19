@@ -126,7 +126,7 @@ module Oauth2China
     end
 
     # 互粉好友ID列表
-    def mutual_friends_ids(options = {})
+    def mutual_friends_ids(count=1000,options = {})
       params = @tmpl.clone.merge(options)
       res = @conn.get("/2/friendships/friends/bilateral/ids.json", params).body
       Hashie::Mash.new(JSON.parse res)
